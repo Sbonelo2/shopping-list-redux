@@ -14,6 +14,7 @@ const ShoppingItem: React.FC<ShoppingItemProps> = ({ item, onToggle, onEdit, onD
   const [editText, setEditText] = useState<string>(item.name);
 
   const handleToggle = () => {
+    console.log('Toggle button pressed for item:', item.name);
     onToggle(item.id);
   };
 
@@ -128,9 +129,9 @@ const ShoppingItem: React.FC<ShoppingItemProps> = ({ item, onToggle, onEdit, onD
               style={[styles.actionButton, styles.editButton]}
               onPress={handleEdit}
               accessibilityLabel={`Edit ${item.name}`}
-              accessibilityHint={`Edit the name of ${item.name}`}
+              accessibilityHint={`Edit name of ${item.name}`}
             >
-              <Text style={styles.editButtonText}>✏️</Text>
+              <Text style={styles.editButtonText}>Edit</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.actionButton, styles.deleteButton]}
@@ -138,7 +139,7 @@ const ShoppingItem: React.FC<ShoppingItemProps> = ({ item, onToggle, onEdit, onD
               accessibilityLabel={`Delete ${item.name}`}
               accessibilityHint={`Delete ${item.name} from your shopping list`}
             >
-              <Text style={styles.deleteButtonText}>🗑️</Text>
+              <Text style={styles.deleteButtonText}>Delete</Text>
             </TouchableOpacity>
           </>
         )}
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#fff',
     borderBottomWidth: 1,
-    borderBottomColor: '#e9ecef',
+    borderBottomColor: '#000',
   },
   itemContent: {
     flex: 1,
@@ -165,15 +166,15 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderWidth: 2,
-    borderColor: '#ddd',
-    borderRadius: 12,
+    borderColor: '#000',
+    borderRadius: 4,
     marginRight: 12,
     justifyContent: 'center',
     alignItems: 'center',
   },
   checked: {
-    backgroundColor: '#007AFF',
-    borderColor: '#007AFF',
+    backgroundColor: '#000',
+    borderColor: '#000',
   },
   checkmark: {
     color: '#fff',
@@ -183,65 +184,64 @@ const styles = StyleSheet.create({
   itemText: {
     flex: 1,
     fontSize: 16,
-    color: '#333',
+    color: '#000',
   },
   strikethrough: {
     textDecorationLine: 'line-through',
-    color: '#999',
+    color: '#666',
   },
   editInput: {
     flex: 1,
     fontSize: 16,
     borderWidth: 1,
-    borderColor: '#007AFF',
+    borderColor: '#000',
     borderRadius: 4,
     paddingHorizontal: 8,
     paddingVertical: 4,
+    color: '#000',
   },
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   actionButton: {
-    width: 36,
+    width: 60,
     height: 36,
-    borderRadius: 18,
+    borderRadius: 4,
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 8,
+    borderWidth: 1,
+    borderColor: '#000',
   },
   editButton: {
-    backgroundColor: '#007AFF',
-    borderWidth: 1,
-    borderColor: '#0056b3',
+    backgroundColor: '#fff',
   },
   deleteButton: {
-    backgroundColor: '#dc3545',
-    borderWidth: 1,
-    borderColor: '#c82333',
+    backgroundColor: '#fff',
   },
   saveButton: {
-    backgroundColor: '#28a745',
+    backgroundColor: '#fff',
   },
   cancelButton: {
-    backgroundColor: '#6c757d',
+    backgroundColor: '#fff',
   },
   editButtonText: {
-    fontSize: 16,
-    color: '#fff',
+    fontSize: 14,
+    color: '#000',
   },
   deleteButtonText: {
-    fontSize: 16,
-    color: '#fff',
+    fontSize: 14,
+    color: '#000',
   },
   saveButtonText: {
-    color: '#fff',
-    fontSize: 16,
+    color: '#000',
+    fontSize: 14,
     fontWeight: 'bold',
   },
   cancelButtonText: {
-    color: '#fff',
-    fontSize: 16,
+    color: '#000',
+    fontSize: 14,
     fontWeight: 'bold',
   },
 });

@@ -10,6 +10,7 @@ const AddItemInput: React.FC<AddItemInputProps> = ({ onAddItem }) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const handleAddItem = () => {
+    console.log('Add button pressed with text:', text);
     const trimmedText = text.trim();
 
     if (!trimmedText) {
@@ -22,6 +23,7 @@ const AddItemInput: React.FC<AddItemInputProps> = ({ onAddItem }) => {
       return;
     }
 
+    console.log('Calling onAddItem with:', trimmedText);
     onAddItem(trimmedText);
     setText('');
     Keyboard.dismiss();
@@ -46,16 +48,16 @@ const AddItemInput: React.FC<AddItemInputProps> = ({ onAddItem }) => {
           maxLength={50}
           accessibilityLabel="Shopping item input"
           accessibilityHint="Enter the name of a shopping item"
-                  />
+        />
         <TouchableOpacity
           style={[styles.addButton, !text.trim() && styles.addButtonDisabled]}
           onPress={handleAddItem}
           disabled={!text.trim()}
           accessibilityLabel="Add shopping item"
           accessibilityHint="Add the entered item to your shopping list"
-                  >
+        >
           <Text style={[styles.addButtonText, !text.trim() && styles.addButtonTextDisabled]}>
-            +
+            Add
           </Text>
         </TouchableOpacity>
       </View>
@@ -73,32 +75,32 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#fff',
     borderTopWidth: 1,
-    borderTopColor: '#e9ecef',
+    borderTopColor: '#000',
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
+    borderColor: '#000',
+    borderRadius: 4,
     paddingHorizontal: 12,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#fff',
   },
   inputContainerFocused: {
-    borderColor: '#007AFF',
+    borderColor: '#000',
     backgroundColor: '#fff',
   },
   input: {
     flex: 1,
     height: 50,
     fontSize: 16,
-    color: '#333',
+    color: '#000',
   },
   addButton: {
-    width: 50,
+    width: 70,
     height: 50,
-    borderRadius: 25,
-    backgroundColor: '#007AFF',
+    borderRadius: 4,
+    backgroundColor: '#000',
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 12,
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ccc',
   },
   addButtonText: {
-    fontSize: 24,
+    fontSize: 16,
     color: '#fff',
     fontWeight: 'bold',
   },

@@ -33,12 +33,14 @@ const ShoppingListScreen: React.FC = () => {
   };
 
   const handleAddItem = (name: string) => {
+    console.log('Add item handler called with:', name);
     if (name.trim()) {
       dispatch(addItem(name));
     }
   };
 
   const handleToggleItem = (id: string) => {
+    console.log('Toggle item handler called with:', id);
     dispatch(toggleItem(id));
   };
 
@@ -133,7 +135,7 @@ const ShoppingListScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#fff',
   },
   header: {
     flexDirection: 'row',
@@ -143,18 +145,18 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     backgroundColor: '#fff',
     borderBottomWidth: 1,
-    borderBottomColor: '#e9ecef',
+    borderBottomColor: '#000',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#2c3e50',
+    color: '#000',
   },
   stats: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#000',
     paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: 15,
+    borderRadius: 4,
   },
   statText: {
     color: '#fff',
@@ -166,7 +168,7 @@ const styles = StyleSheet.create({
     padding: 12,
     marginHorizontal: 20,
     marginTop: 10,
-    borderRadius: 8,
+    borderRadius: 4,
     borderLeftWidth: 4,
     borderLeftColor: '#f44336',
   },
@@ -188,23 +190,23 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 18,
-    color: '#6c757d',
+    color: '#000',
     marginBottom: 8,
   },
   emptySubtext: {
     fontSize: 14,
-    color: '#adb5bd',
+    color: '#666',
   },
   footer: {
     padding: 20,
     backgroundColor: '#fff',
     borderTopWidth: 1,
-    borderTopColor: '#e9ecef',
+    borderTopColor: '#000',
   },
   clearButton: {
-    backgroundColor: '#dc3545',
+    backgroundColor: '#000',
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 4,
     alignItems: 'center',
   },
   clearButtonText: {
